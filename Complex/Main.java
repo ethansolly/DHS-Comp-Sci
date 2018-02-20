@@ -1,9 +1,6 @@
-package com.company;
-
 import javax.tools.Tool;
 import java.applet.Applet;
 import java.awt.*;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main extends Applet {

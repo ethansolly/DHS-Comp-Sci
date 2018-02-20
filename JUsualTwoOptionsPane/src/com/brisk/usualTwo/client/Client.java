@@ -37,6 +37,7 @@ public class Client extends JPanel {
 	 * @param args arguments used in a command line!
 	 */
 	public Client(String...args) {
+		//WIP
 		quest = new JTextArea("--Ask a question--");
 		quest.setEditable(true);
 		quest.setLineWrap(true);

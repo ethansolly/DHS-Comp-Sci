@@ -13,9 +13,7 @@ public class Main extends Applet {
     }
 
     public void paint(Graphics g) {
-        //Eccentricity
         for(int i = 0; i < getWidth(); i+=1) {
-            //Mean Anomaly
             for (int j = 0; j < getHeight(); j+=1) {
                 double x = 2*((double)i/getWidth())-1;
                 double y = 2*((double)j/getHeight())-1;

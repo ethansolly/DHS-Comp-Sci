@@ -2,9 +2,6 @@ package com.ethansolly.cantrip;
 
 import java.awt.*;
 
-/**
- * Created by Ethan Sollenberger on 4/5/2017.
- */
 public class Gradient {
 
     private Color c1, c2;

@@ -30,7 +30,7 @@ public class Complex {
     }
 
     public static Complex cos(Complex c) {
-        return new Complex(Math.cos(c.a)*Math.cosh(c.b), Math.sin(c.a)*Math.sinh(c.b));
+        return new Complex(Math.cos(c.a)*Math.cosh(c.b), -Math.sin(c.a)*Math.sinh(c.b));
     }
     
     public static Complex sinh(Complex c) {

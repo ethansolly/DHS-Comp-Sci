@@ -32,6 +32,32 @@ public class Complex {
     public static Complex cos(Complex c) {
         return new Complex(Math.cos(c.a)*Math.cosh(c.b), Math.sin(c.a)*Math.sinh(c.b));
     }
+    
+    public static Complex sinh(Complex c) {
+        return new Complex(Math.sinh(c.a)*Math.cos(c.b), Math.cosh(c.a)*Math.sin(c.b));
+    }
+
+    public static Complex cosh(Complex c) {
+        return new Complex(Math.cosh(c.a)*Math.cos(c.b), Math.sinh(c.a)*Math.sin(c.b));
+    }
+
+
+    public static Complex arcsin(Complex c) {
+        return c.timesI(1).plus(ONE.minus(c.pow(2)).pow(0.5)).log().timesI(-1);
+    }
+
+    public static Complex arccos(Complex c) {
+        return c.plus(ONE.minus(c.pow(2)).pow(0.5).timesI(1)).log().timesI(-1);
+    }
+
+    public static Complex arctan(Complex c) {
+        return I.plus(c).divide(I.minus(c)).log().timesI(0.5);
+    }
+
+    public static Complex erica(Complex c) {
+        return new Complex(c.a*c.b, -(c.a/c.b % c.b/c.a)/(c.b/c.a % c.a/c.b));
+    }
+
 
     ////////////////
 

@@ -54,8 +54,8 @@ public class Complex {
         return I.plus(c).divide(I.minus(c)).log().timesI(0.5);
     }
 
-    public static Complex erica(Complex c) {
-        return new Complex(c.a*c.b, -(c.a/c.b % c.b/c.a)/(c.b/c.a % c.a/c.b));
+    public static Complex erica(Complex c, double d) {
+        return new Complex(c.a*c.b, -(c.a/c.b % (c.b/c.a + d))/(c.b/c.a % c.a/c.b + d));
     }
 
 

@@ -58,6 +58,32 @@ public class Complex {
         return new Complex(c.a*c.b, -(c.a/c.b % (c.b/c.a + d))/(c.b/c.a % c.a/c.b + d));
     }
 
+    private static double[] p = {676.5203681218851
+            , -1259.1392167224028
+            , 771.32342877765313
+            , -176.61502916214059
+            , 12.507343278686905
+            , -0.13857109526572012
+            , 9.9843695780195716e-6
+            , 1.5056327351493116e-7};
+
+    public static Complex gamma(Complex c) {
+        Complex y;
+        if (c.real() < 0.5)
+            y = (sin(c.times(Math.PI)).times(gamma(ONE.minus(c)))).pow(-1).times(Math.PI);
+        else {
+            c = c.minus(-1);
+            Complex x = new Complex(0.99999999999980993, 0);
+            for (int i = 0; i < p.length; i++)
+                x = x.plus(c.plus(i+1).pow(-1).times(p[i]));
+            Complex t = c.plus(p.length-0.5);
+            y = t.pow(c.plus(0.5)).times(exp(t.neg())).times(x).times(Math.sqrt(2*Math.PI));
+        }
+        return y;
+
+    }
+
+
 
     ////////////////
 
@@ -151,7 +177,7 @@ public class Complex {
 
     public Color getColor() {
         float H = (float)(arg()/(2*Math.PI));
-        float S = (abs() < 1.0/16.0 || (abs() < 17.0/16.0 && abs() > 15.0/16.0))? 0.0f : 1.0f;
+        float S = (abs() < 1.0/16.0 || (abs() % 1 < 1.0/16.0 && abs() % 1 > -1.0/16.0))? 0.0f : 1.0f;
         float L = (float)Math.exp(-abs());
         return Color.getHSBColor(H, S, L);
     }

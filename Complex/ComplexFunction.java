@@ -72,7 +72,7 @@ public class ComplexFunction {
     }
 
     public Complex contour(Complex a) {
-        return contour(t -> Complex.cis(t).plus(a), Complex::icis);
+        return contour(t -> Complex.cis(Math.PI*t).plus(a), t -> Complex.icis(Math.PI*t));
     }
 
     public Complex contour() {

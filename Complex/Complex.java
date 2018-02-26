@@ -21,6 +21,8 @@ public class Complex {
         return cis(1, angle);
     }
 
+    public static Complex icis(double angle) { return cis(angle).timesI(1); }
+
     public static Complex exp(Complex c) {
         return cis(Math.exp(c.a), c.b);
     }
@@ -82,8 +84,6 @@ public class Complex {
         return y;
 
     }
-
-
 
     ////////////////
 

@@ -72,11 +72,14 @@ public class Main extends Applet implements MouseListener {
         dx -= e.getX();
         dy -= e.getY();
 
-        x1+=dx*(x2-x1)/getWidth();
-        x2+=dx*(x2-x1)/getWidth();
+        dx*=(x2-x1)/getWidth();
+        dy*=(y2-y1)/getHeight();
+        
+        x1+=dx;
+        x2+=dx;
 
-        y1+=dy*(y2-y1)/getHeight();
-        y2+=dy*(y2-y1)/getHeight();
+        y1+=dy;
+        y2+=dy;
         repaint();
     }
 

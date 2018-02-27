@@ -10,7 +10,7 @@ public class Main extends Applet implements MouseListener {
     boolean useT = false;
     double t;
 
-    private final ComplexFunction function = new ComplexFunction(c -> c.pow(-1));
+    private final ComplexFunction function = new ComplexFunction(c -> c.pow(c.pow(c.pow(c.pow(c.pow(c))))));
     private static final Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
 
     double x1 = -3;
@@ -26,7 +26,9 @@ public class Main extends Applet implements MouseListener {
         addMouseListener(this);
     }
 
+    private Complex[][][] vals;
     public void paint(Graphics g) {
+        vals = new Complex[getWidth()][getHeight()][useT? (int)((t2-t1)/(tInc)): 1];
         if (useT) {
             for (t = t1; t <= t2; t += tInc) {
                 graph(g);
@@ -39,6 +41,7 @@ public class Main extends Applet implements MouseListener {
     }
 
     public void graph(Graphics g) {
+
         for (int i = 0; i < getWidth(); i += 1) {
             for (int j = 0; j < getHeight(); j += 1) {
                 double x = x2 * ((double) i / getWidth()) + x1 * (1.0 - (double) i / getWidth());

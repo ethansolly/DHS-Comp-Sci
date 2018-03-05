@@ -120,38 +120,40 @@ class DoubleList
       
     private void insert(Student2Node newStudent)
     {
-    	Student2Node temp = front;
-    	//Empty list
-		if (temp == null) {
-			newStudent.setForward(temp);
-			front = newStudent;
-		}
-		//At front/one node list
-		else if (temp.getGPA() <= newStudent.getGPA()) {
-			temp.setBack(newStudent);
-			newStudent.setForward(temp);
-			front = newStudent;
-		}
-		//In middle
-		boolean done = false;
-		temp = temp.getForward();
-		while (!done && temp != null) {
-			if (temp.getGPA() <= newStudent.getGPA()) {
-				temp.getBack().setForward(newStudent);
-				newStudent.setBack(temp.getBack());
-				newStudent.setForward(temp);
-				temp.setBack(newStudent);
-				done = true;
-			}
-			temp = temp.getForward();
-		}
-		//End of list
-		if (!done) {
-			back.setForward(newStudent);
-			newStudent.setBack(back);
+		if (front == null) {
+			front = back = newStudent;
 			newStudent.setForward(null);
-			back = newStudent;
+			newStudent.setBack(null);
 		}
+
+		else if (newStudent.getGPA() >= front.getGPA()) {
+			front.setBack(newStudent);
+			newStudent.setForward(front);
+			newStudent.setBack(null);
+			front = newStudent;
+		}
+
+		else {
+			Student2Node temp = front;
+			boolean done = false;
+			while (!done && temp != null) {
+				if (newStudent.getGPA() >= temp.getGPA()) {
+					temp.getBack().setForward(newStudent);
+					newStudent.setBack(temp.getBack());
+					temp.setBack(newStudent);
+					newStudent.setForward(temp);
+					done = true;
+				} else {
+					temp = temp.getForward();
+				}
+			}
+			if (!done) {
+				back.setForward(newStudent);
+				newStudent.setBack(back);
+				back = newStudent;
+			}
+		}
+
     }
         	
 	public void displayAll()

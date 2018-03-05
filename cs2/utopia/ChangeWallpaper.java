@@ -1,4 +1,3 @@
-package com.lutalica.utopia;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,14 +18,14 @@ public class ChangeWallpaper {
 	* @param args Needed for main method
 	*/
 	public static void main(String[] args) {
-		String me = getID("705937");
+		String me = getID("");
 		set(me);
 	}
 	
 	public static String getID(String ID) {
 		String picture = "resources/images/" + ID + ".jpg";
 		try {
-			Down.load(new URL("https://skystorage.iscorp.com/pictures/tx/fortbend//0" + ID + ".jpg"), picture);
+			com.lutalica.utopia.Down.load(new URL("https://skystorage.iscorp.com/pictures/tx/fortbend//0" + ID + ".jpg"), picture);
 			return picture;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

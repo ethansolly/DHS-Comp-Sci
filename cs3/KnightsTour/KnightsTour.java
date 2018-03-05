@@ -1,3 +1,5 @@
+package KnightsTour;
+
 import javafx.application.Application;
 
 import javax.swing.*;

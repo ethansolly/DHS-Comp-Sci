@@ -96,7 +96,7 @@ class DoubleList
 
 	public void getList() throws IOException
 	{
-		FileReader inFile = new FileReader("students2.dat");	
+		FileReader inFile = new FileReader("cs3\\labs\\Lab34a\\students2.dat");
 		BufferedReader inStream = new BufferedReader(inFile);	     
 		String s1,s2,s3,s4;
 		int age, id;
@@ -120,8 +120,38 @@ class DoubleList
       
     private void insert(Student2Node newStudent)
     {
-    	
-    	
+    	Student2Node temp = front;
+    	//Empty list
+		if (temp == null) {
+			newStudent.setForward(temp);
+			front = newStudent;
+		}
+		//At front/one node list
+		else if (temp.getGPA() <= newStudent.getGPA()) {
+			temp.setBack(newStudent);
+			newStudent.setForward(temp);
+			front = newStudent;
+		}
+		//In middle
+		boolean done = false;
+		temp = temp.getForward();
+		while (!done && temp != null) {
+			if (temp.getGPA() <= newStudent.getGPA()) {
+				temp.getBack().setForward(newStudent);
+				newStudent.setBack(temp.getBack());
+				newStudent.setForward(temp);
+				temp.setBack(newStudent);
+				done = true;
+			}
+			temp = temp.getForward();
+		}
+		//End of list
+		if (!done) {
+			back.setForward(newStudent);
+			newStudent.setBack(back);
+			newStudent.setForward(null);
+			back = newStudent;
+		}
     }
         	
 	public void displayAll()
@@ -129,7 +159,12 @@ class DoubleList
 		System.out.println("\nDISPLAYING ALL STUDENTS");
 		System.out.println("\nStudent ID#     Student Name            Age         GPA");
 		System.out.println("============================================================");
-		     
+
+		Student2Node temp = front;
+		while (temp != null) {
+			System.out.println(temp.getID() + "\t" + temp.getName() + "\t" + temp.getAge() + "\t" + temp.getGPA());
+			temp = temp.getForward();
+		}
 
 	}	
 	
@@ -138,7 +173,12 @@ class DoubleList
 		System.out.println("\nDISPLAYING HONOR ROLL STUDENTS");
 		System.out.println("\nStudent ID#     Student Name            Age         GPA");
 		System.out.println("============================================================");
-		     
+
+		Student2Node temp = front;
+		while (temp != null && temp.getGPA() >= 3.5) {
+			System.out.println(temp.getID() + "\t" + temp.getName() + "\t" + temp.getAge() + "\t" + temp.getGPA());
+			temp = temp.getForward();
+		}
 
 	}	   
 		
@@ -147,7 +187,12 @@ class DoubleList
 		System.out.println("\nDISPLAYING ACADEMIC PROBATION STUDENTS");
 		System.out.println("\nStudent ID#     Student Name            Age         GPA");
 		System.out.println("============================================================");
-		     
+
+		Student2Node temp = back;
+		while (temp != null && temp.getGPA() < 2.0) {
+			System.out.println(temp.getID() + "\t" + temp.getName() + "\t" + temp.getAge() + "\t" + temp.getGPA());
+			temp = temp.getBack();
+		}
 
 	}	
 	

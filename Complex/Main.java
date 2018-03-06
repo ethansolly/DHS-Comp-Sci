@@ -10,7 +10,7 @@ public class Main extends Applet implements MouseListener {
     boolean useT = false;
     double t;
 
-    private final ComplexFunction function = ComplexFunction.SIN;
+    private final ComplexFunction function = ComplexFunction.IDENTITY;
     private static final Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
 
     double x1 = -3;

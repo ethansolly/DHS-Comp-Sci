@@ -42,8 +42,4 @@ public class Matrix {
         else throw new UnsupportedOperationException("Matrices must have an equal number of rows and columns in order to add them.");
     }
 
-    public Matrix multiply(Matrix m) throws UnsupportedOperationException {
-
-    }
-
 }

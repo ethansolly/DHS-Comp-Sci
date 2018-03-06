@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Complex {
+public class Complex implements Cloneable {
 
     public static final Complex ZERO = new Complex(0, 0);
     public static final Complex ONE = new Complex(1, 0);
@@ -169,7 +169,7 @@ public class Complex {
         return cis(Math.pow(abs(), d), arg()*d);
     }
 
-    public Complex copy() {
+    public Complex clone() {
         return new Complex(a, b);
     }
 
@@ -177,8 +177,8 @@ public class Complex {
 
     public Color getColor() {
         float H = (float)(arg()/(2*Math.PI));
-        float S = (abs() < 1.0/16.0 || (abs() % 1 < 1.0/16.0 && abs() % 1 > -1.0/16.0))? 0.0f : 1.0f;
-        float L = (float)Math.exp(-abs());
+        float S = 1;
+        float L = (float)((abs() > 1) ? ((Math.log(abs())) % 1) : 1);
         return Color.getHSBColor(H, S, L);
     }
 

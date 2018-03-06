@@ -1,25 +1,34 @@
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.function.Function;
 
-public class Main extends Applet {
+public class Main extends Applet implements MouseListener {
 
     boolean useT = false;
     double t;
 
-    private final ComplexFunction function = ComplexFunction.GAMMA;
+    private final ComplexFunction function = ComplexFunction.SIN;
     private static final Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
 
-    double x1 = -10;
-    double x2 = 1;
-    double y1 = -1;
-    double y2 = 1;
+    double x1 = -3;
+    double x2 = 3;
+    double y1 = -3;
+    double y2 = 3;
 
     double t1 = -10;
     double t2 = 10;
     double tInc = 0.01;
 
+    public void init() {
+        addMouseListener(this);
+    }
+
+    private Complex[][][] vals;
     public void paint(Graphics g) {
+        vals = new Complex[getWidth()][getHeight()][useT? (int)((t2-t1)/(tInc)): 1];
         if (useT) {
             for (t = t1; t <= t2; t += tInc) {
                 graph(g);
@@ -32,6 +41,7 @@ public class Main extends Applet {
     }
 
     public void graph(Graphics g) {
+
         for (int i = 0; i < getWidth(); i += 1) {
             for (int j = 0; j < getHeight(); j += 1) {
                 double x = x2 * ((double) i / getWidth()) + x1 * (1.0 - (double) i / getWidth());
@@ -42,5 +52,47 @@ public class Main extends Applet {
                 g.drawRect(i, j, 1, 1);
             }
         }
+    }
+
+    private boolean pressed = false;
+    private int dx;
+    private int dy;
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        pressed = true;
+        dx = e.getX();
+        dy = e.getY();
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        dx -= e.getX();
+        dy -= e.getY();
+
+        dx*=(x2-x1)/getWidth();
+        dy*=(y2-y1)/getHeight();
+        
+        x1+=dx;
+        x2+=dx;
+
+        y1+=dy;
+        y2+=dy;
+        repaint();
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

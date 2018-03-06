@@ -49,11 +49,17 @@ public class ComplexFunction {
 
     public static final ComplexFunction XTREME = new ComplexFunction(c -> xtremeHelper(c));
 
+
+
+
     private Function<Complex, Complex> function;
 
     public ComplexFunction(Function<Complex, Complex> function) {
         this.function = function;
     }
+
+
+
 
     public Complex apply(Complex c) {
         return function.apply(c);

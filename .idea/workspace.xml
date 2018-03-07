@@ -2,93 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3df2c65-bb56-4f9a-8bc2-953d80d394b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Matrix/MatrixMain.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/KnightsTour/KnightsTour.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/KnightsTour/KnightsTour.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab23a/Lab23a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab23a/Lab23ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24a/GfxApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24a/Lab24a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24a/Lab24ast$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24a/Lab24ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24a/RegPoly.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24b/Circle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24b/GfxApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24b/Lab24b.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24b/Lab24bst$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab24b/Lab24bst.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Computer$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Computer$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Computer$OS.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Computer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/ITechnology.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Lab25a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Lab25ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab25a/Tech.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29a/Lab29a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29a/Maze.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29a/MazeApplet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29a/Wall.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29b/Lab29b.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29b/Lab29bst.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab29b/MyStack.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/Circle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/GfxApp$Coord.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/GfxApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/Lab30a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/Lab30ast$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/Lab30ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab30a/students3.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32a/Lab32a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32a/Lab32ast$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32a/Lab32ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32a/Windows.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32b/GfxApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32b/Lab32b.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32b/Lab32bst$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab32b/Lab32bst.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33a/GfxApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33a/GfxNode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33a/Lab33a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33a/Lab33ast$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33a/Lab33ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33b/Lab33b.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33b/Lab33bst.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab33b/PolyNode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab34a/DoubleList.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab34a/Lab34a.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab34a/Lab34ast.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab34a/Student2Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/labs/Lab34a/students2.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/Cards.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/Complex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/Kuami.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/awjio/5_Squirrel96.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/awjio/awo.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/awjio/awoda.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/beef/Beefer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/beef/PrintMe.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/beef/PrintOperation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/mafs/Mafs.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/Browser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/Encrypt$Pad.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/Encrypt.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/GraphicsOperation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/ScreenMeme.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/Utilz$UtilzMouseListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/perdono/Utilz.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/prime/NextPrime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/prime/Prime.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/prime/RandWalk.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/prime/Waht.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/spectyr/App.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/spectyr/FFT.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/memes/spectyr/ReadWAV.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/Complex.class" afterPath="$PROJECT_DIR$/out/Complex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/ComplexFunction.class" afterPath="$PROJECT_DIR$/out/ComplexFunction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/Matrix.class" afterPath="$PROJECT_DIR$/out/Matrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Matrix/Matrix.java" afterPath="$PROJECT_DIR$/Matrix/Matrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Matrix/MatrixMain.java" afterPath="$PROJECT_DIR$/Matrix/MatrixMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/test/" />
@@ -104,28 +19,28 @@
       <file leaf-file-name="Lab34ast.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs3/labs/Lab34a/Lab34ast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="2159">
               <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Matrix/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="303">
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatrixMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatrixMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Matrix/MatrixMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -169,7 +84,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="width" value="720" />
     <option name="height" value="860" />
   </component>
@@ -188,9 +103,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,7 +122,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -341,6 +256,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e3df2c65-bb56-4f9a-8bc2-953d80d394b2" name="Default" comment="" />
@@ -352,56 +270,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="0" y="0" width="720" height="860" extended-state="0" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.013888889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1188946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24289773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -459,12 +358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#1376#1404#1" expanded="false" />
-            <element signature="e#1444#1472#1" expanded="false" />
-            <element signature="e#1512#1540#1" expanded="false" />
-            <element signature="e#1628#1655#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,12 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#1376#1404#1" expanded="false" />
-            <element signature="e#1444#1472#1" expanded="false" />
-            <element signature="e#1512#1540#1" expanded="false" />
-            <element signature="e#1628#1655#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,7 +613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs3/labs/Lab34a/Lab34ast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="2159">
           <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
           <folding />
         </state>
@@ -762,18 +649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Matrix/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/Matrix/MatrixMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Matrix/MatrixMain.java">
+    <entry file="file://$PROJECT_DIR$/Matrix/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="303">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding />
         </state>
       </provider>

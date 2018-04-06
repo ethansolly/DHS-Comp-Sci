@@ -1,4 +1,8 @@
+import org.apache.commons.math3.linear.MatrixUtils;
+import org.apache.commons.math3.linear.RealMatrix;
+
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -14,11 +18,20 @@ public class Matrix {
         return temp;
     }
 
+    public static Matrix compat(int r, int c) {
+        Matrix temp = new Matrix(r, c);
+        for (double[] d : temp.matr)
+            Arrays.fill(d, 1);
+        return temp;
+    }
+
     public Matrix(int n) { matr = new double[n][n]; }
 
     public Matrix(int r, int c) {
         matr = new double[r][c];
     }
+
+    public Matrix(double[][] matr) { this.matr = matr; }
 
     public int getR() {
         return matr.length;
@@ -77,7 +90,7 @@ public class Matrix {
     }
 
     public double det() {
-        if (getR() == getC()) {
+        if (isSquare()) {
             int n = getR();
             if (n == 1) {
                 return matr[0][0];
@@ -88,7 +101,7 @@ public class Matrix {
             else {
                 double ret = 0;
                 for (int i = 0; i < n; i++) {
-                    Matrix temp = new Matrix(n-1, n-1);
+                    Matrix temp = new Matrix(n-1);
 
 
                     for (int j = 1; j < n; j++) {
@@ -110,36 +123,21 @@ public class Matrix {
     }
 
     public double trace() throws UnsupportedOperationException {
-        if (getR() == getC()) {
-            double ret = 0;
-            int n = getR();
-            for (int i = 0; i < n; i++) {
-                ret += matr[i][i];
-            }
-            return ret;
-        }
-        else throw new UnsupportedOperationException("Trace cannot be applied to non-square matrices.");
+        return MatrixUtils.createRealMatrix(matr).getTrace();
     }
 
     public Matrix inverse() throws UnsupportedOperationException {
-        if (getR() == getC() && det() != 0) {
-            int n = getR();
-            Matrix ret = new Matrix(n, n);
-            if (n == 1) {
-                ret.setVal(1.0/matr[0][0], 0, 0);
-            }
-            else if (n == 2) {
-                ret = identity(2).multiply(trace()).add(multiply(-1)).multiply(1.0/det());
-            }
-            else if (n == 3) {
-                ret = identity(3).multiply((trace()*trace()-multiply(this).trace())/2.0).add(multiply(-trace())).add(multiply(this)).multiply(1.0/det());
-            }
-            else if (n == 4) {
-
-            }
+        if (isSquare()) {
+            double[][] newMatr = MatrixUtils.inverse(MatrixUtils.createRealMatrix(matr)).getData();
+            Matrix ret = new Matrix(getR(), getC());
+            ret.matr = newMatr;
             return ret;
         }
         else throw new UnsupportedOperationException("Non-square matrices cannot be inverted.");
+    }
+
+    public boolean isSquare() {
+        return getR() == getC();
     }
 
     public String toString() {

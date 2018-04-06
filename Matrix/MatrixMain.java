@@ -3,6 +3,7 @@ import java.util.Random;
 public class MatrixMain {
 
     public static void main(String...args) {
+
         Random r = new Random();
         int n = r.nextInt(5)+1;
         Matrix m = new Matrix(n);
@@ -13,6 +14,7 @@ public class MatrixMain {
             }
         }
         System.out.println(m);
-        System.out.println(m.det());
+        System.out.println(m.inverse());
+
     }
 }

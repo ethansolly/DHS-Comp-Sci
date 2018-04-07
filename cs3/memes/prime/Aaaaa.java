@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.text.html.HTMLDocument;
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.ImageObserver;
 import java.math.BigInteger;
 import java.text.AttributedCharacterIterator;
@@ -16,52 +18,86 @@ import memes.prime.Aaaaa.Alphabet;
 
 import static memes.prime.Aaaaa.Alphabet.*;
 
-public class Aaaaa extends Applet {
+public class Aaaaa extends Applet implements MouseListener {
 
-    ArrayList<Alphabet> state = new ArrayList<>();
+
+    private ArrayList<Alphabet> state = new ArrayList<>();
+
+    private double X;
+    private double Y;
+    private int dx;
+    private int dy;
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        dx = e.getX();
+        dy = e.getY();
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        dx -= e.getX();
+        dy -= e.getY();
+
+        X=-dx;
+        Y=-dy;
+
+        repaint();
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 
     enum Alphabet {
         x,
+        y,
         f,
         p,
         m,
         l,
-        r
+        r,
+        c0,
+        c1,
+        c2,
     }
+
+    LSystem lSystem;
 
     public void init() {
 
-        int n = 8;
+        lSystem = LSystem.KEVS_TREE;
+
+        addMouseListener(this);
+
+        int n = 5;
 
         //Axiom
-        List axiom = Arrays.asList(m, m, m, x);
+        List axiom = lSystem.getAxiom();
         state.addAll(axiom);
 
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < state.size(); j++) {
                 Alphabet a = state.get(j);
-                List replace;
-                switch (a) {
-                    case x:
-                        state.remove(j);
-
-                        replace = Arrays.asList(f, m, f, p, p, l, l, x, r, m, x, r, m, f, l, m, f, x, r, p, x);
-
-                        state.addAll(j, replace);
-                        j+=replace.size();
-                        break;
-                    case f:
-                        state.remove(j);
-
-                        replace = Arrays.asList(f, f);
-
-                        state.addAll(j, replace);
-                        j+=replace.size();
-                        break;
+                if (lSystem.hasRule(a)) {
+                    state.remove(j);
+                    List replace = lSystem.getRule(a);
+                    state.addAll(j, replace);
+                    j += replace.size();
                 }
             }
-            System.out.println(state);
 
             System.out.println("State " + i + " complete!");
         }
@@ -69,43 +105,50 @@ public class Aaaaa extends Applet {
 
     public void paint(Graphics g) {
 
-        g.setColor(new Color(1, 50, 32));
+        double baseAngle = lSystem.getBaseAngle();
+        double angle = 0;
 
-        double x = getWidth()/2;
-        double y = getHeight()/2;
-
-
-        double angle = 25.0*Math.PI/180.0;
-
-        double mag = 2;
+        double mag = 10;
 
         Stack<Double> savedX = new Stack<>();
         Stack<Double> savedY = new Stack<>();
         Stack<Double> savedAngles = new Stack<>();
 
+        X += getWidth()/2.0;
+        Y += getHeight()/2.0;
+
         for (Alphabet a: state) {
             switch (a.name()) {
                 case "f" :
-                    double newX = x + mag * Math.cos(angle);
-                    double newY = y - mag * Math.sin(angle);
-                    g.drawLine((int)x, (int)y, (int)newX, (int)newY);
-                    x = newX; y = newY;
+                    double newX = X + mag * Math.cos(angle);
+                    double newY = Y - mag * Math.sin(angle);
+                    g.drawLine((int)X, (int)Y, (int)newX, (int)newY);
+                    X = newX; Y = newY;
                     break;
                 case "m" :
-                    angle += 25.0*Math.PI/180.0;
+                    angle -= baseAngle;
                     break;
                 case "p" :
-                    angle -= 25.0*Math.PI/180.0;
+                    angle += baseAngle;
                     break;
                 case "l" :
-                    savedX.push(x);
-                    savedY.push(y);
+                    savedX.push(X);
+                    savedY.push(Y);
                     savedAngles.push(angle);
                     break;
                 case "r" :
-                    x = savedX.pop();
-                    y = savedY.pop();
+                    X = savedX.pop();
+                    Y = savedY.pop();
                     angle = savedAngles.pop();
+                    break;
+                case "c0" :
+                    g.setColor(new Color(150, 75, 0));
+                    break;
+                case "c1" :
+                    g.setColor(new Color(1, 50, 32));
+                    break;
+                case "c2" :
+                    g.setColor(Color.GREEN);
                     break;
             }
         }
@@ -113,16 +156,57 @@ public class Aaaaa extends Applet {
     }
 }
 
-class DoublePoint {
+class LSystem {
 
-    double x, y;
+    private static HashMap HEIGHWAY_DRAGON_MAP = new HashMap<>();
+    public static final LSystem HEIGHWAY_DRAGON = new LSystem(
+            Arrays.asList(f, x),
+            HEIGHWAY_DRAGON_MAP,
+            Math.PI/2.0);
 
-    public DoublePoint(double x, double y) {
-        this.x = x;
-        this.y = y;
+    private static HashMap KEVS_TREE_MAP = new HashMap<>();
+    public static final LSystem KEVS_TREE = new LSystem(
+            Arrays.asList(f),
+            KEVS_TREE_MAP,
+            22.0*Math.PI/180.0);
+
+    static {
+        HEIGHWAY_DRAGON_MAP.put(x, Arrays.asList(x, p, y, f, p));
+        HEIGHWAY_DRAGON_MAP.put(y, Arrays.asList(m, f, x, m, y));
+
+        KEVS_TREE_MAP.put(f, Arrays.asList(c0, f, f, m, l, c1, m, f, p, f, p, f, r, p, l, c2, p, f, m, f, m, f, r));
     }
-    public void set(DoublePoint p) {
-        this.x = p.x;
-        this.y = p.y;
+
+
+
+    private List axiom;
+    private Map<Alphabet, List> rules;
+    private double baseAngle;
+
+    public LSystem(List axiom, Map<Alphabet, List> rules, double baseAngle) {
+        this.axiom = axiom;
+        this.rules = rules;
+        this.baseAngle = baseAngle;
     }
+
+    public List getAxiom() {
+        return axiom;
+    }
+
+    public Map<Alphabet, List> getRules() {
+        return rules;
+    }
+
+    public List getRule(Alphabet a) {
+        return rules.get(a);
+    }
+
+    public double getBaseAngle() {
+        return baseAngle;
+    }
+
+    public boolean hasRule(Alphabet a) {
+        return rules.containsKey(a);
+    }
+
 }

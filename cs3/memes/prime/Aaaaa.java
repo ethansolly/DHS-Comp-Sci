@@ -18,7 +18,7 @@ import memes.prime.Aaaaa.Alphabet;
 
 import static memes.prime.Aaaaa.Alphabet.*;
 
-public class Aaaaa extends Applet implements MouseListener {
+public class Aaaaa extends JApplet implements MouseListener {
 
 
     private ArrayList<Alphabet> state = new ArrayList<>();
@@ -44,8 +44,8 @@ public class Aaaaa extends Applet implements MouseListener {
         dx -= e.getX();
         dy -= e.getY();
 
-        X=-dx;
-        Y=-dy;
+        X-=dx;
+        Y-=dy;
 
         repaint();
     }
@@ -64,6 +64,7 @@ public class Aaaaa extends Applet implements MouseListener {
         x,
         y,
         f,
+        g,
         p,
         m,
         l,
@@ -77,11 +78,14 @@ public class Aaaaa extends Applet implements MouseListener {
 
     public void init() {
 
-        lSystem = LSystem.KEVS_TREE;
+        X = getWidth()/2.0;
+        Y = getHeight()/2.0;
+
+        lSystem = LSystem.SIERPINSKI;
 
         addMouseListener(this);
 
-        int n = 5;
+        int n = 6;
 
         //Axiom
         List axiom = lSystem.getAxiom();
@@ -114,11 +118,9 @@ public class Aaaaa extends Applet implements MouseListener {
         Stack<Double> savedY = new Stack<>();
         Stack<Double> savedAngles = new Stack<>();
 
-        X += getWidth()/2.0;
-        Y += getHeight()/2.0;
-
         for (Alphabet a: state) {
             switch (a.name()) {
+                case "g" :
                 case "f" :
                     double newX = X + mag * Math.cos(angle);
                     double newY = Y - mag * Math.sin(angle);
@@ -162,19 +164,32 @@ class LSystem {
     public static final LSystem HEIGHWAY_DRAGON = new LSystem(
             Arrays.asList(f, x),
             HEIGHWAY_DRAGON_MAP,
-            Math.PI/2.0);
+            Math.PI/2.0
+    );
 
     private static HashMap KEVS_TREE_MAP = new HashMap<>();
     public static final LSystem KEVS_TREE = new LSystem(
             Arrays.asList(f),
             KEVS_TREE_MAP,
-            22.0*Math.PI/180.0);
+            22.0*Math.PI/180.0
+    );
+
+    private static HashMap SIERPINSKY_MAP = new HashMap<>();
+    public static final LSystem SIERPINSKI = new LSystem(
+            Arrays.asList(f, m, g, m, g),
+            SIERPINSKY_MAP,
+            2.0*Math.PI/3.0
+    );
+
 
     static {
         HEIGHWAY_DRAGON_MAP.put(x, Arrays.asList(x, p, y, f, p));
         HEIGHWAY_DRAGON_MAP.put(y, Arrays.asList(m, f, x, m, y));
 
         KEVS_TREE_MAP.put(f, Arrays.asList(c0, f, f, m, l, c1, m, f, p, f, p, f, r, p, l, c2, p, f, m, f, m, f, r));
+
+        SIERPINSKY_MAP.put(f, Arrays.asList(f,m,g,p,f,p,g,m,f));
+        SIERPINSKY_MAP.put(g, Arrays.asList(g,g));
     }
 
 

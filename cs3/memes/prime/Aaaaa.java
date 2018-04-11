@@ -46,6 +46,8 @@ public class Aaaaa extends JApplet{
         c0,
         c1,
         c2,
+        c3,
+        c4
     }
 
     LSystem lSystem;
@@ -54,12 +56,9 @@ public class Aaaaa extends JApplet{
 
         setSize(Utilz.screen);
 
-        X = getWidth()/2;
-        Y = getHeight()/2;
+        lSystem = LSystem.HEIGHWAY_DRAGON;
 
-        lSystem = LSystem.LACE;
-
-        int n = 7;
+        int n = 15;
 
         //Axiom
         List axiom = lSystem.getAxiom();
@@ -80,16 +79,17 @@ public class Aaaaa extends JApplet{
         }
     }
 
-    boolean repaint = false;
-
     public void paint(Graphics g) {
+
+        X = getWidth()/2;
+        Y = 3*getHeight()/4;
 
         ArrayList<Alphabet> stateClone = new ArrayList<>(state);
 
         double baseAngle = lSystem.getBaseAngle();
-        double angle = 0;
+        double angle = Math.PI/2.0;
 
-        double mag = 3;
+        double mag = 5;
 
         Stack<Double> savedX = new Stack<>();
         Stack<Double> savedY = new Stack<>();
@@ -128,6 +128,12 @@ public class Aaaaa extends JApplet{
                     break;
                 case "c2" :
                     g.setColor(Color.GREEN);
+                    break;
+                case "c3" :
+                    g.setColor(Color.RED);
+                    break;
+                case "c4" :
+                    g.setColor(Color.BLACK);
                     break;
             }
         }
@@ -179,6 +185,13 @@ class LSystem {
             Math.PI/6.0
     );
 
+    private static HashMap ERICA_MAP = new HashMap<>();
+    public static final LSystem ERICA = new LSystem(
+            Arrays.asList(c4, x, y),
+            ERICA_MAP,
+            Math.PI/22.0
+    );
+
 
     static {
         HEIGHWAY_DRAGON_MAP.put(x, Arrays.asList(x, p, y, f, p));
@@ -199,6 +212,9 @@ class LSystem {
         LACE_MAP.put(x, Arrays.asList(m,m,m,w,p,p,f,p,p,y,f,w,m));
         LACE_MAP.put(y, Arrays.asList(p,z,f,x,m,m,f,m,m,z,p,p,p));
         LACE_MAP.put(z, Arrays.asList(m,y,f,w,p,p,f,p,p,y,m,m,m));
+
+        ERICA_MAP.put(x, Arrays.asList(x, f));
+        ERICA_MAP.put(y, Arrays.asList(x, l, m, m, m, m, f, y, r, p, f, y));
     }
 
 

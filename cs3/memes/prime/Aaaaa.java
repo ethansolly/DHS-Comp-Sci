@@ -43,11 +43,15 @@ public class Aaaaa extends JApplet{
         l,
         r,
 
-        c0,
-        c1,
-        c2,
-        c3,
-        c4
+        cr,
+        co,
+        cy,
+        cg,
+        cc,
+        ci,
+        cp,
+        cb,
+        cw
     }
 
     LSystem lSystem;
@@ -56,9 +60,9 @@ public class Aaaaa extends JApplet{
 
         setSize(Utilz.screen);
 
-        lSystem = LSystem.HEIGHWAY_DRAGON;
+        lSystem = LSystem.ISLAND;
 
-        int n = 15;
+        int n = 4;
 
         //Axiom
         List axiom = lSystem.getAxiom();
@@ -81,13 +85,13 @@ public class Aaaaa extends JApplet{
 
     public void paint(Graphics g) {
 
-        X = getWidth()/2;
-        Y = 3*getHeight()/4;
+        X = 0;
+        Y = getHeight()/2;
 
         ArrayList<Alphabet> stateClone = new ArrayList<>(state);
 
         double baseAngle = lSystem.getBaseAngle();
-        double angle = Math.PI/2.0;
+        double angle = 0;
 
         double mag = 5;
 
@@ -120,19 +124,28 @@ public class Aaaaa extends JApplet{
                     Y = savedY.pop();
                     angle = savedAngles.pop();
                     break;
-                case "c0" :
-                    g.setColor(new Color(150, 75, 0));
-                    break;
-                case "c1" :
-                    g.setColor(new Color(1, 50, 32));
-                    break;
-                case "c2" :
-                    g.setColor(Color.GREEN);
-                    break;
-                case "c3" :
+                case "cr":
                     g.setColor(Color.RED);
                     break;
-                case "c4" :
+                case "co":
+                    g.setColor(Color.ORANGE);
+                    break;
+                case "cy":
+                    g.setColor(Color.YELLOW);
+                    break;
+                case "cg":
+                    g.setColor(Color.GREEN);
+                    break;
+                case "cc":
+                    g.setColor(Color.CYAN);
+                    break;
+                case "ci":
+                    g.setColor(Color.BLUE);
+                    break;
+                case "cw":
+                    g.setColor(Color.WHITE);
+                    break;
+                case "cb":
                     g.setColor(Color.BLACK);
                     break;
             }
@@ -161,7 +174,7 @@ class LSystem {
     public static final LSystem SIERPINSKI = new LSystem(
             Arrays.asList(f),
             SIERPINSKY_MAP,
-            2.0*Math.PI/3.0
+            Math.PI/3.0
     );
 
     private static HashMap KOCH_MAP = new HashMap<>();
@@ -187,9 +200,16 @@ class LSystem {
 
     private static HashMap ERICA_MAP = new HashMap<>();
     public static final LSystem ERICA = new LSystem(
-            Arrays.asList(c4, x, y),
+            Arrays.asList(x, y),
             ERICA_MAP,
             Math.PI/22.0
+    );
+
+    private static HashMap ISLAND_MAP = new HashMap<>();
+    public static final LSystem ISLAND = new LSystem(
+            Arrays.asList(f, p, f, p, f, p, f),
+            ISLAND_MAP,
+            Math.PI/2.0
     );
 
 
@@ -197,7 +217,7 @@ class LSystem {
         HEIGHWAY_DRAGON_MAP.put(x, Arrays.asList(x, p, y, f, p));
         HEIGHWAY_DRAGON_MAP.put(y, Arrays.asList(m, f, x, m, y));
 
-        KEVS_TREE_MAP.put(f, Arrays.asList(c0, f, f, m, l, c1, m, f, p, f, p, f, r, p, l, c2, p, f, m, f, m, f, r));
+        KEVS_TREE_MAP.put(f, Arrays.asList(f, f, m, l, m, f, p, f, p, f, r, p, l, p, f, m, f, m, f, r));
 
         SIERPINSKY_MAP.put(f, Arrays.asList(g, m, f, m, g));
         SIERPINSKY_MAP.put(g, Arrays.asList(f, p, g, p, f));
@@ -215,6 +235,9 @@ class LSystem {
 
         ERICA_MAP.put(x, Arrays.asList(x, f));
         ERICA_MAP.put(y, Arrays.asList(x, l, m, m, m, m, f, y, r, p, f, y));
+
+        ISLAND_MAP.put(f, Arrays.asList(f, p, g, m, f, f, p, f, p, f, f, p, f, g,p,f,f,m,g,p,f,f,m,f,m,f,f,m,f,g,m,f,f,f));
+        ISLAND_MAP.put(g, Arrays.asList(g, g, g, g, g, g));
     }
 
 

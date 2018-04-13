@@ -211,6 +211,13 @@ class LSystem {
             ISLAND_MAP,
             Math.PI/2.0
     );
+    
+    private static HashMap BROT_MAP = new HashMap<>();
+    public static final LSystem BROT = new LSystem(
+            Arrays.asList(f, g),
+            BROT_MAP,
+            Math.PI/4.0
+    );
 
 
     static {
@@ -236,8 +243,11 @@ class LSystem {
         ERICA_MAP.put(x, Arrays.asList(x, f));
         ERICA_MAP.put(y, Arrays.asList(x, l, m, m, m, m, f, y, r, p, f, y));
 
-        ISLAND_MAP.put(f, Arrays.asList(f, p, g, m, f, f, p, f, p, f, f, p, f, g,p,f,f,m,g,p,f,f,m,f,m,f,f,m,f,g,m,f,f,f));
-        ISLAND_MAP.put(g, Arrays.asList(g, g, g, g, g, g));
+        ISLAND_MAP.put(f, Arrays.asList(cb, f, p, cw, g, m, cb, f, f, p, f, p, f, f, p, f, cw, g,p, cb, f,f,m, cw, g,p, cb, f,f,m,f,m,f,f,m,f, cw, g,m,cb,f,f,f));
+        ISLAND_MAP.put(g, Arrays.asList(cb, g, g, g, g, g, g));
+        
+        BROT_MAP.put(f, Arrays.asList(f, l, m, g, f, r, l, p, f, g, r, f));
+        BROT_MAP.put(g, Arrays.asList(g, l, p, f, g, r, l, m, g, f, r, g));
     }
 
 

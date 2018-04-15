@@ -1,26 +1,16 @@
 package memes.prime;
 
 import javax.swing.*;
-import javax.swing.text.html.HTMLDocument;
-import java.applet.Applet;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.ImageObserver;
-import java.lang.reflect.Array;
-import java.math.BigInteger;
-import java.text.AttributedCharacterIterator;
 import java.util.*;
 import java.util.List;
-import java.util.function.Consumer;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
 import memes.perdono.Utilz;
 import memes.prime.Aaaaa.Alphabet;
 
 import static memes.prime.Aaaaa.Alphabet.*;
 
-public class Aaaaa extends JApplet{
+public class Aaaaa extends JFrame {
 
 
     private ArrayList<Alphabet> state = new ArrayList<>();

@@ -2,10 +2,10 @@ package memes.prime;
 
 import memes.perdono.Utilz;
 
-import java.applet.Applet;
+import javax.swing.*;
 import java.awt.*;
 
-public class RandWalk extends Applet {
+public class RandWalk extends JWindow {
     private int nextX;
     private int nextY;
 

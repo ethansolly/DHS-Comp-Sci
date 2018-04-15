@@ -1,15 +1,12 @@
 package KnightsTour;
 
-import javafx.application.Application;
-
 import javax.swing.*;
-import java.applet.Applet;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class KnightsTour extends Applet {
+public class KnightsTour extends JWindow {
 
     /**
      * MUCH Credit to

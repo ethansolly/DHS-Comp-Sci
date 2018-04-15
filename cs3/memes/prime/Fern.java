@@ -5,7 +5,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.util.LinkedList;
 
-public class Fern extends JApplet {
+public class Fern extends JWindow {
 
     private LinkedList<Double> xStack = new LinkedList<>();
     private LinkedList<Double> yStack = new LinkedList<>();

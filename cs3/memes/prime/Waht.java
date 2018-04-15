@@ -6,6 +6,8 @@ import memes.perdono.Utilz;
 import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.math.BigDecimal;
 import java.util.Random;
 import java.util.function.Function;
@@ -20,11 +22,13 @@ public class Waht extends JFrame {
 
     public Waht() {
 
+        addMouseListener(new WahtMouseListener());
+
         //VARIABLE INIT
-        x1 = new BigDecimal(0.001643721971152d);
-        x2 = new BigDecimal(0.001643721971154d);
-        y1 = new BigDecimal(0.822467633298875d);
-        y2 = new BigDecimal(0.822467633298877d);
+        x1 = new BigDecimal(-2.5);
+        x2 = new BigDecimal( 1.0);
+        y1 = new BigDecimal(-1.0);
+        y2 = new BigDecimal( 1.0);
 
         //WINDOW INIT
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -46,15 +50,17 @@ public class Waht extends JFrame {
                 BigDecimal y = new BigDecimal(y0.toString());
 
                 double iter = 0;
-                while ((x.pow(2).add(y.pow(2)).compareTo(new BigDecimal(4)) < 0) && iter < 1000) {
-                    double xTemp = x*x - y*y + x0;
-                    double yTemp = 2*x*y + y0;
+                while ((x.pow(2).add(y.pow(2)).subtract(new BigDecimal(4)).doubleValue() < 0) && iter < 10) {
 
-                    if (x == xTemp && y == yTemp) {
+                    System.out.println(x + " " + y);
+
+                    BigDecimal xTemp = x.pow(2).subtract(y.pow(2)).add(x0);
+                    BigDecimal yTemp = new BigDecimal(2).multiply(x).multiply(y).add(y0);
+
+                    if (x.equals(xTemp) && y.equals(yTemp)) {
                         iter = 1000;
                         break;
                     }
-
 
                     x = xTemp;
                     y = yTemp;
@@ -64,7 +70,7 @@ public class Waht extends JFrame {
 
                 //Avoid floating point errors
                 if (iter < 1000) {
-                    double log_zn = Math.log(x*x + y*y)/2;
+                    double log_zn = Math.log(x.pow(2).add(y.pow(2)).doubleValue())/2.0;
                     double nu = Math.log(log_zn/Math.log(2))/Math.log(2);
                     iter = iter + 1 - nu;
                 }
@@ -93,4 +99,42 @@ public class Waht extends JFrame {
     }
 
 
+    public class WahtMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            BigDecimal dx = x2.subtract(x1);
+            BigDecimal dy = y2.subtract(y1);
+
+            BigDecimal x0 = x2.multiply(new BigDecimal((double) e.getX() / getWidth())).add(x1.multiply(new BigDecimal(1.0 - (double) e.getX() / getWidth())));
+            BigDecimal y0 = y2.multiply(new BigDecimal((double) e.getY() / getHeight())).add(y1.multiply(new BigDecimal(1.0 - (double) e.getY() / getHeight())));
+
+            x1 = new BigDecimal(x0.toString()).subtract(dx.divide(new BigDecimal(2)));
+            x2 = new BigDecimal(x0.toString()).add(dx.divide(new BigDecimal(2)));
+
+            y1 = new BigDecimal(y0.toString()).subtract(dy.divide(new BigDecimal(2)));
+            y2 = new BigDecimal(y0.toString()).add(dy.divide(new BigDecimal(2)));
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
 }

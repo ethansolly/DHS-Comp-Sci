@@ -26,6 +26,8 @@ public class Aaaaa extends JFrame {
 
         f,
         g,
+        fl,
+        fr,
 
         p,
         m,
@@ -46,11 +48,15 @@ public class Aaaaa extends JFrame {
 
     LSystem lSystem;
 
-    public void init() {
+    public static void main(String...args) {
+        Aaaaa aaaaa = new Aaaaa();
+    }
+
+    public Aaaaa() {
 
         setSize(Utilz.screen);
 
-        lSystem = LSystem.ISLAND;
+        lSystem = LSystem.FLY;
 
         int n = 4;
 
@@ -71,74 +77,89 @@ public class Aaaaa extends JFrame {
 
             System.out.println("State " + i + " complete!");
         }
+
+        setVisible(true);
     }
 
     public void paint(Graphics g) {
 
-        X = 0;
-        Y = getHeight()/2;
+        for (int t = 1; t <= 240; t++) {
 
-        ArrayList<Alphabet> stateClone = new ArrayList<>(state);
+            g.clearRect(0, 0, getWidth(), getHeight());
 
-        double baseAngle = lSystem.getBaseAngle();
-        double angle = 0;
+            X = getWidth() / 2;
+            Y = getHeight() / 2;
 
-        double mag = 5;
+            ArrayList<Alphabet> stateClone = new ArrayList<>(state);
 
-        Stack<Double> savedX = new Stack<>();
-        Stack<Double> savedY = new Stack<>();
-        Stack<Double> savedAngles = new Stack<>();
+            double baseAngle = t * Math.PI / 120;
+            double angle = Math.PI / 2;
 
-        for (Alphabet a: stateClone) {
-            switch (a.name()) {
-                case "g" :
-                case "f" :
-                    double newX = X + mag * Math.cos(angle);
-                    double newY = Y - mag * Math.sin(angle);
-                    g.drawLine((int)X, (int)Y, (int)newX, (int)newY);
-                    X = newX; Y = newY;
-                    break;
-                case "m" :
-                    angle -= baseAngle;
-                    break;
-                case "p" :
-                    angle += baseAngle;
-                    break;
-                case "l" :
-                    savedX.push(X);
-                    savedY.push(Y);
-                    savedAngles.push(angle);
-                    break;
-                case "r" :
-                    X = savedX.pop();
-                    Y = savedY.pop();
-                    angle = savedAngles.pop();
-                    break;
-                case "cr":
-                    g.setColor(Color.RED);
-                    break;
-                case "co":
-                    g.setColor(Color.ORANGE);
-                    break;
-                case "cy":
-                    g.setColor(Color.YELLOW);
-                    break;
-                case "cg":
-                    g.setColor(Color.GREEN);
-                    break;
-                case "cc":
-                    g.setColor(Color.CYAN);
-                    break;
-                case "ci":
-                    g.setColor(Color.BLUE);
-                    break;
-                case "cw":
-                    g.setColor(Color.WHITE);
-                    break;
-                case "cb":
-                    g.setColor(Color.BLACK);
-                    break;
+            double mag = 5;
+
+            Stack<Double> savedX = new Stack<>();
+            Stack<Double> savedY = new Stack<>();
+            Stack<Double> savedAngles = new Stack<>();
+
+            for (Alphabet a : stateClone) {
+                switch (a.name()) {
+                    case "g":
+                    case "f":
+                        double newX = X + mag * Math.cos(angle);
+                        double newY = Y - mag * Math.sin(angle);
+                        g.drawLine((int) X, (int) Y, (int) newX, (int) newY);
+                        X = newX;
+                        Y = newY;
+                        break;
+                    case "m":
+                        angle -= baseAngle;
+                        break;
+                    case "p":
+                        angle += baseAngle;
+                        break;
+                    case "l":
+                        savedX.push(X);
+                        savedY.push(Y);
+                        savedAngles.push(angle);
+                        break;
+                    case "r":
+                        X = savedX.pop();
+                        Y = savedY.pop();
+                        angle = savedAngles.pop();
+                        break;
+                    case "cr":
+                        g.setColor(Color.RED);
+                        break;
+                    case "co":
+                        g.setColor(Color.ORANGE);
+                        break;
+                    case "cy":
+                        g.setColor(Color.YELLOW);
+                        break;
+                    case "cg":
+                        g.setColor(Color.GREEN);
+                        break;
+                    case "cc":
+                        g.setColor(Color.CYAN);
+                        break;
+                    case "ci":
+                        g.setColor(Color.BLUE);
+                        break;
+                    case "cw":
+                        g.setColor(Color.WHITE);
+                        break;
+                    case "cb":
+                        g.setColor(Color.BLACK);
+                        break;
+                }
             }
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
@@ -209,6 +230,13 @@ class LSystem {
             Math.PI/4.0
     );
 
+    private static HashMap FLY_MAP = new HashMap<>();
+    public static final LSystem FLY = new LSystem(
+            Arrays.asList(fl),
+            FLY_MAP,
+            Math.PI/2.0
+    );
+
 
     static {
         HEIGHWAY_DRAGON_MAP.put(x, Arrays.asList(x, p, y, f, p));
@@ -238,6 +266,11 @@ class LSystem {
         
         BROT_MAP.put(f, Arrays.asList(f, l, m, g, f, r, l, p, f, g, r, f));
         BROT_MAP.put(g, Arrays.asList(g, l, p, f, g, r, l, m, g, f, r, g));
+
+
+        FLY_MAP.put(fl, Arrays.asList(fl, f, p, fr, f, fr, p, f, fl, m, f, m, fl));
+        FLY_MAP.put(fr, Arrays.asList(p, f, p, fr, f, m, fl, f, fl, m, f, fr));
+
     }
 
 

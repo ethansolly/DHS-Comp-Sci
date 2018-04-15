@@ -13,5 +13,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
+    <orderEntry type="library" name="j3dcore" level="project" />
+    <orderEntry type="library" name="j3dutils" level="project" />
+    <orderEntry type="library" name="vecmath" level="project" />
   </component>
 </module>

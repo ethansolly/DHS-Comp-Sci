@@ -41,53 +41,42 @@ public class Waht extends JFrame {
 
         for (int i = 0; i < getWidth(); i++) {
             for (int j = 0; j < getHeight(); j++) {
-                BigDecimal x0 = x2.multiply(new BigDecimal((double)i/getWidth())).add(x1.multiply(new BigDecimal(1.0-(double)i/getWidth())));
-                BigDecimal y0 = y2.multiply(new BigDecimal((double)j/getHeight())).add(y1.multiply(new BigDecimal(1.0-(double)j/getHeight())));
 
+                BigDecimal r0 = x2.subtract(x1).multiply(new BigDecimal(i/getWidth()));
+                BigDecimal i0 = y2.subtract(y1).multiply(new BigDecimal(j/getHeight()));
 
-                //Make copies of x0 and y0
-                BigDecimal x = new BigDecimal(x0.toString());
-                BigDecimal y = new BigDecimal(y0.toString());
+                BigDecimal re = new BigDecimal(0);
+                BigDecimal im = new BigDecimal(0);
+                BigDecimal rSqr = re.multiply(re);
+                BigDecimal iSqr = im.multiply(im);
 
-                double iter = 0;
-                while ((x.pow(2).add(y.pow(2)).subtract(new BigDecimal(4)).doubleValue() < 0) && iter < 10) {
+                int iter = 0;
+                while (rSqr.add(iSqr).subtract(new BigDecimal(4)).signum() <= 0 && iter < 10) {
 
-                    System.out.println(x + " " + y);
-
-                    BigDecimal xTemp = x.pow(2).subtract(y.pow(2)).add(x0);
-                    BigDecimal yTemp = new BigDecimal(2).multiply(x).multiply(y).add(y0);
-
-                    if (x.equals(xTemp) && y.equals(yTemp)) {
-                        iter = 1000;
-                        break;
-                    }
-
-                    x = xTemp;
-                    y = yTemp;
+                    im = re.add(im).pow(2).subtract(rSqr).subtract(iSqr);
+                    im = im.add(i0);
+                    re = rSqr.subtract(iSqr).add(r0);
+                    rSqr = re.multiply(re);
+                    iSqr = im.multiply(im);
 
                     iter++;
+
                 }
 
-                //Avoid floating point errors
-                if (iter < 1000) {
-                    double log_zn = Math.log(x.pow(2).add(y.pow(2)).doubleValue())/2.0;
-                    double nu = Math.log(log_zn/Math.log(2))/Math.log(2);
-                    iter = iter + 1 - nu;
-                }
 
-                Color c1 = palette[ (int)Math.floor(iter)%palette.length];
-                Color c2 = palette[((int)Math.floor(iter)+1)%palette.length];
+                Color c1 = palette[(int) Math.floor(iter) % palette.length];
+                Color c2 = palette[((int) Math.floor(iter) + 1) % palette.length];
 
                 double frac = iter % 1;
                 double R = lerp(c1.getRed(), c2.getRed(), frac);
                 double G = lerp(c1.getGreen(), c2.getGreen(), frac);
                 double B = lerp(c1.getBlue(), c2.getBlue(), frac);
 
-                g.setColor(new Color((int)R, (int)G, (int)B));
-
+                g.setColor(new Color((int) R, (int) G, (int) B));
                 g.drawRect(i, j, 1, 1);
 
             }
+
         }
     }
 

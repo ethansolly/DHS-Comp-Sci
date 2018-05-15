@@ -56,9 +56,9 @@ public class Aaaaa extends JFrame {
 
         setSize(Utilz.screen);
 
-        lSystem = LSystem.FLY;
+        lSystem = LSystem.SIERPINSKI;
 
-        int n = 4;
+        int n = 10;
 
         //Axiom
         List axiom = lSystem.getAxiom();

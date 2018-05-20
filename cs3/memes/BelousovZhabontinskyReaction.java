@@ -49,9 +49,9 @@ public class BelousovZhabontinskyReaction extends JFrame {
                      *  5 0 1
                      *  6 7 8
                      */
-                    double sumA = (num[i][j][1] + num[i][j+1][1] + num[i-1][j+1][1] + num[i-1][j][1] + num[i-1][j-1][1] + num[i][j-1][1] + num[i+1][j-1][1] + num[i+1][j][1] + num[i+1][j+1][1]);
-                    double sumB = (num[i][j][2] + num[i][j+1][2] + num[i-1][j+1][2] + num[i-1][j][2] + num[i-1][j-1][2] + num[i][j-1][2] + num[i+1][j-1][2] + num[i+1][j][2] + num[i+1][j+1][2]);
-                    double sumC = (num[i][j][3] + num[i][j+1][3] + num[i-1][j+1][3] + num[i-1][j][3] + num[i-1][j-1][3] + num[i][j-1][3] + num[i+1][j-1][3] + num[i+1][j][3] + num[i+1][j+1][3]);
+                    double sumA = (num[i][j][1] + num[i][j+1][1] + num[i-1][j+1][1] + num[i-1][j][1] + num[i-1][j-1][1] + num[i][j-1][1] + num[i+1][j-1][1] + num[i+1][j][1] + num[i+1][j+1][1])/9;
+                    double sumB = (num[i][j][2] + num[i][j+1][2] + num[i-1][j+1][2] + num[i-1][j][2] + num[i-1][j-1][2] + num[i][j-1][2] + num[i+1][j-1][2] + num[i+1][j][2] + num[i+1][j+1][2])/9;
+                    double sumC = (num[i][j][3] + num[i][j+1][3] + num[i-1][j+1][3] + num[i-1][j][3] + num[i-1][j-1][3] + num[i][j-1][3] + num[i+1][j-1][3] + num[i+1][j][3] + num[i+1][j+1][3])/9;
 
                     tNum[i][j][1] = (sumA + sumA*(alpha*sumB - gamma*sumC));
                     tNum[i][j][2] = (sumB + sumB*(beta*sumC - alpha*sumA));

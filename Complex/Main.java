@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -5,25 +6,30 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.function.Function;
 
-public class Main extends Applet implements MouseListener {
+public class Main extends JFrame {
 
     boolean useT = false;
     double t;
 
-    private final ComplexFunction function = ComplexFunction.IDENTITY;
+    private final ComplexFunction function = ComplexFunction.GAMMA;
     private static final Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
 
-    double x1 = -3;
-    double x2 = 3;
-    double y1 = -3;
-    double y2 = 3;
+    double x1 = -10;
+    double x2 = 10;
+    double y1 = -10;
+    double y2 = 10;
 
-    double t1 = -10;
-    double t2 = 10;
+    double t1 = 0;
+    double t2 = 2*Math.PI;
     double tInc = 0.01;
 
-    public void init() {
-        addMouseListener(this);
+    public static void main(String...args) {
+        Main main = new Main();
+    }
+
+    public Main() {
+        super("Complex Function Grapher");
+        setVisible(true);
     }
 
     private Complex[][][] vals;
@@ -54,45 +60,4 @@ public class Main extends Applet implements MouseListener {
         }
     }
 
-    private boolean pressed = false;
-    private int dx;
-    private int dy;
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        pressed = true;
-        dx = e.getX();
-        dy = e.getY();
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        dx -= e.getX();
-        dy -= e.getY();
-
-        dx*=(x2-x1)/getWidth();
-        dy*=(y2-y1)/getHeight();
-        
-        x1+=dx;
-        x2+=dx;
-
-        y1+=dy;
-        y2+=dy;
-        repaint();
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }

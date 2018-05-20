@@ -8,9 +8,9 @@ import java.util.function.Function;
 
 public class Recursion extends JFrame {
 
-    private double xLeft = 0;
-    private double xRight = 1;
-    private double yBottom = 0;
+    private double xLeft = -0.5;
+    private double xRight = 1.5;
+    private double yBottom = -1;
     private double yTop = 1;
 
     private boolean havePoint = false;
@@ -26,8 +26,9 @@ public class Recursion extends JFrame {
 
     public void paint(Graphics g) {
 
-        //if (havePoint) {
-        for (double r = 0; r <= 4; r+=0.01) {
+        //Logistic map
+        for (double r = 2; r <= 4; r+=0.01) {
+        //for (double x0 = xLeft; x0 < xRight; x0+=0.01) {
 
             final double R = r;
 
@@ -55,14 +56,17 @@ public class Recursion extends JFrame {
 
             int maxIter = 100;
 
+            int recJ1, recJ2;
+            recJ1 = recJ2 = 0;
+
             for (int iter = 0; iter < maxIter; iter++) {
                 //Start on y = x, draw vertically to function value
                 double x = (xRight-xLeft)*((double) recI)/getWidth() + xLeft;
                 double y = x;
-                int recJ1 = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
+                recJ1 = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
 
                 y = function.apply(x);
-                int recJ2 = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
+                recJ2 = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
 
                 g.drawLine(recI, recJ1, recI, recJ2);
 
@@ -76,14 +80,15 @@ public class Recursion extends JFrame {
 
             }
 
+            g.setColor(Color.RED);
+            g.fillOval(recI-10, recJ1-10, 20, 20);
+            g.setColor(Color.BLACK);
+
             try {
                 Thread.sleep(100);
-                if (r==4)
-                    Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

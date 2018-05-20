@@ -24,6 +24,28 @@ public class ComplexFunction {
 
     public static final ComplexFunction LOG = new ComplexFunction(Complex::log);
 
+    public static final ComplexFunction EXPMAP = new ComplexFunction(ComplexFunction::exponentialMap);
+    public static Complex exponentialMap(Complex c) {
+        int iter = 0;
+        Complex z = Complex.ZERO;
+        while (iter < 100) {
+            z = Complex.exp(z).plus(c);
+            iter++;
+        }
+        return z;
+    }
+
+    public static final ComplexFunction GAUSSMAP = new ComplexFunction(c -> gaussMap(c));
+    public static Complex gaussMap(Complex c) {
+        int iter = 0;
+        Complex z = Complex.ZERO;
+        while (iter < 100) {
+            z = Complex.exp(z.pow(2).neg().times(c.real())).plus(c.imag());
+            iter++;
+        }
+        return z;
+    }
+
     private Function<Complex, Complex> function;
 
     public ComplexFunction(Function<Complex, Complex> function) {

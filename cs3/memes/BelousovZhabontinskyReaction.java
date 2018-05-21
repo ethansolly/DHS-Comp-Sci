@@ -12,7 +12,7 @@ public class BelousovZhabontinskyReaction extends JFrame {
     private double[][][] num;
 
     public static void main(String...args) {
-        BelousovZhabontinskyReaction bzr = new BelousovZhabontinskyReaction(1.2, 1, 1);
+        BelousovZhabontinskyReaction bzr = new BelousovZhabontinskyReaction(0.42, 0.69, 1.27);
     }
 
     public BelousovZhabontinskyReaction(double alpha, double beta, double gamma) {
@@ -20,7 +20,7 @@ public class BelousovZhabontinskyReaction extends JFrame {
         this.alpha = alpha;
         this.beta = beta;
         this.gamma = gamma;
-        setSize(Utilz.screen);
+        setSize(300, 300);
         setVisible(true);
     }
 

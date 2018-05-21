@@ -30,6 +30,7 @@ public class ScreenMeme extends JFrame {
     private static final int SETTING = 1;
 
     public static void main(String...args) {
+        /*
         ScreenMeme sm = new ScreenMeme(g -> {
             double t = 0;
             double inc = 0.01;
@@ -57,6 +58,7 @@ public class ScreenMeme extends JFrame {
                 //System.out.println(t);
             }
         });
+        */
 
 
         ScreenMeme smee = new ScreenMeme(g -> {
@@ -88,15 +90,16 @@ public class ScreenMeme extends JFrame {
                         g.drawRect((int) rp, dp, 1, 1);
                     }
                 }
-            }
+            }*/
 
 
-            /*
+
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, screen.width, screen.height);
 
             final double[] BIFURC = {0, 0, 3, 3.449, 3.54409, 3.5644};
-            final double MINR = BIFURC[0];
+            final double END = 4;
+            final double MINR = BIFURC[5];
             final double MAXR = 4;
 
             final int SPLITS = 10;
@@ -135,7 +138,7 @@ public class ScreenMeme extends JFrame {
                     }
                 }
             }
-            */
+
         });
 
 

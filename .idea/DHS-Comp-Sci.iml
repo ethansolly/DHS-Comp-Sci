@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Complex" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Matrix" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cs3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/csNaN" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="inheritedJdk" />

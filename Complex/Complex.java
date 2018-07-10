@@ -5,6 +5,8 @@ public class Complex implements Cloneable {
     public static final Complex ZERO = new Complex(0, 0);
     public static final Complex ONE = new Complex(1, 0);
     public static final Complex I = new Complex(0, 1);
+    public static final Complex PII = new Complex(0, Math.PI);
+    public static final Complex TWOPII = new Complex(0, 2*Math.PI);
 
     double a, b;
 
@@ -56,34 +58,51 @@ public class Complex implements Cloneable {
         return I.plus(c).divide(I.minus(c)).log().timesI(0.5);
     }
 
-    public static Complex erica(Complex c, double d) {
-        return new Complex(c.a*c.b, -(c.a/c.b % (c.b/c.a + d))/(c.b/c.a % c.a/c.b + d));
+    public static Complex log(Complex c) {
+        return c.log();
     }
 
-    private static double[] p = {676.5203681218851
-            , -1259.1392167224028
-            , 771.32342877765313
-            , -176.61502916214059
-            , 12.507343278686905
-            , -0.13857109526572012
-            , 9.9843695780195716e-6
-            , 1.5056327351493116e-7};
-
-    public static Complex gamma(Complex c) {
-        Complex y;
-        if (c.real() < 0.5)
-            y = (sin(c.times(Math.PI)).times(gamma(ONE.minus(c)))).pow(-1).times(Math.PI);
-        else {
-            c = c.minus(-1);
-            Complex x = new Complex(0.99999999999980993, 0);
-            for (int i = 0; i < p.length; i++)
-                x = x.plus(c.plus(i+1).pow(-1).times(p[i]));
-            Complex t = c.plus(p.length-0.5);
-            y = t.pow(c.plus(0.5)).times(exp(t.neg())).times(x).times(Math.sqrt(2*Math.PI));
+    public static Complex thetaFunction(int a, int b, Complex z, Complex t) {
+        if (a == 0 && b == 0) {
+            return thetaFunction(z, t);
         }
-        return y;
-
+        else if (a == 0 && b == 1) {
+            return thetaFunction(z.plus(0.5), t);
+        }
+        else if (a == 1 && b == 0) {
+            return exp(PII.times(t.times(0.25).plus(z))).times(thetaFunction(z.plus(t.times(0.5)), t));
+        }
+        else if (a == 1 && b == 1) {
+            return exp(PII.times(t.times(0.25).plus(z.plus(0.5)))).times(thetaFunction(z.plus(t.plusOne().times(0.5)), t));
+        }
+        else {
+            return ZERO;
+        }
     }
+
+    private static Complex thetaFunction(Complex z, Complex t) {
+        Complex q = exp(t.times(PII));
+        Complex m = exp(z.times(TWOPII));
+        Complex sum = ONE; //From when n = 0, q^n^2 * m = 1
+        int n = 1;
+        int P = 8;
+        int maxIter = (int)Math.ceil(Math.sqrt((P+2)/(Math.PI*t.b*Math.log(Math.E)/Math.log(2))))+1;
+        while (n < maxIter) {
+            Complex subSum = q.pow(n*n).times(m.pow(n).plus(m.pow(-n)));
+            sum = sum.plus(subSum);
+            n++;
+        }
+        return sum;
+    }
+
+    public static Complex weierstrassElliptic(Complex z, Complex t) {
+        Complex theta   = thetaFunction(0, 0, ZERO, t);
+        Complex theta10 = thetaFunction(1, 0, ZERO, t);
+        Complex theta01 = thetaFunction(0, 1, z, t);
+        Complex theta11 = thetaFunction(1, 1, z, t);
+        return (theta.squared().times(theta10.squared()).times(theta01.squared().divide(theta11.squared())).times(Math.PI*Math.PI).minus(theta.pow(4).plus(theta10.pow(4)).times(Math.PI*Math.PI/3)));
+    }
+
 
     ////////////////
 
@@ -105,6 +124,9 @@ public class Complex implements Cloneable {
 
     /////////////////
 
+    public Complex conj() {
+        return new Complex(a, -b);
+    }
     public Complex plus(Complex c) {
         return new Complex(a + c.a, b + c.b);
     }
@@ -113,8 +135,24 @@ public class Complex implements Cloneable {
         return new Complex(a + d, b);
     }
 
+    public Complex plusOne() {
+        return plus(1);
+    }
+
+    public Complex plusTwo() {
+        return plus(2);
+    }
+
     public Complex plusI(double d) {
         return new Complex(a, b + d);
+    }
+
+    public Complex plusI() {
+        return plusI(1);
+    }
+
+    public Complex plus2i() {
+        return plusI(2);
     }
 
     public Complex minus(Complex c) {
@@ -125,8 +163,24 @@ public class Complex implements Cloneable {
         return new Complex(a - d, b);
     }
 
+    public Complex minusOne() {
+        return minus(1);
+    }
+
+    public Complex minusTwo() {
+        return minus(2);
+    }
+
     public Complex minusI(double d) {
         return new Complex(a, b - d);
+    }
+
+    public Complex minusI() {
+        return minusI(1);
+    }
+
+    public Complex minus2i() {
+        return minusI(2);
     }
 
     public Complex neg() { return new Complex(-a, -b); }
@@ -143,12 +197,17 @@ public class Complex implements Cloneable {
         return new Complex(-b*d, a*d);
     }
 
+    public Complex timesI() {
+        return timesI(1);
+    }
+
     public Complex divide(Complex c) {
-        return new Complex(a - c.a, b - c.b);
+        double k = c.a*c.a + c.b*c.b;
+        return new Complex((a*c.a + b*c.b)/k, (b*c.a - a*c.b)/k);
     }
 
     public Complex divide(double d) {
-        return new Complex(a - d, b);
+        return new Complex(a/d, b/d);
     }
 
     public Complex divideI(double d) {
@@ -169,16 +228,41 @@ public class Complex implements Cloneable {
         return cis(Math.pow(abs(), d), arg()*d);
     }
 
+    public Complex squared() {
+        return pow(2);
+    }
+
+    public Complex sqrt() {
+        return pow(0.5);
+    }
+
+    public Complex inv() {
+        return pow(-1);
+    }
+
     public Complex clone() {
         return new Complex(a, b);
     }
 
     //////////////////
 
+    boolean grid = true;
+
     public Color getColor() {
-        float H = (float)(arg()/(2*Math.PI));
-        float S = 1;
-        float L = (float)((abs() > 1) ? ((Math.log(abs())) % 1) : 1);
+        float H = (float)((arg()/(2*Math.PI)));
+        float S = (
+                !grid? 1
+                        :(abs() < 1.0/16.0)? 0 //A zero
+                        :(abs() > 1 && abs() < 18.0/16.0)? 0.1f //Outer section of unit circle
+                        :(abs() < 1 && abs() > 14.0/16.0)? 0.2f //Inner section
+                        : 1 //else
+        );
+        float L = (float)(
+                ((abs() > 18.0/16.0 || (abs() < 14.0/16.0 && abs() > 1.0/16.0)) && (grid && ((a % 1 < 1.0/16.0 && a % 1 > -1.0/16.0) || (b % 1 < 1.0/16.0 && b % 1 > -1.0/16.0))))? 0 //Blacken grid
+                        : ((abs() < 18.0/16.0) && (abs() > 14.0/16.0)) ? 1  //Brighten anything within circle border
+                        : (abs() > 1.0/16.0) ? ((((Math.log(abs()))/Math.log(2) % 1) + 1) % 1)     //Else, do the step effect as you go further out
+                        : 1
+        );
         return Color.getHSBColor(H, S, L);
     }
 
@@ -188,6 +272,12 @@ public class Complex implements Cloneable {
         return a + " + " + b + "i";
     }
 
-
-
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Complex) {
+            Complex cObj = (Complex) obj;
+            return (a == cObj.a) && (b == cObj.b);
+        }
+        return false;
+    }
 }

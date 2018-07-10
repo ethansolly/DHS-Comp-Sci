@@ -1,6 +1,7 @@
 package labs.Lab29a;
 
-import memes.perdono.Utilz;
+
+import memes.Utilz;
 
 import java.applet.Applet;
 import java.awt.*;

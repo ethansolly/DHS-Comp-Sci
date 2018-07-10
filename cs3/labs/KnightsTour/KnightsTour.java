@@ -1,6 +1,6 @@
 package labs.KnightsTour;
 
-import memes.perdono.Utilz;
+import memes.Utilz;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class KnightsTour extends JWindow {
+public class KnightsTour extends JFrame {
 
     /**
      * MUCH Credit to
@@ -18,17 +18,15 @@ public class KnightsTour extends JWindow {
 
 
     private int moveCount = 0;
-    private int width;
-    private int height;
-    private int r;
-    private int c;
+    private static int width;
+    private static int height;
+    private static int r;
+    private static int c;
     private static final Dimension screen = Utilz.screen;
-    private static int totWidth = screen.width;
-    private static int totHeight = screen.height;
     private int[] ordering;
     private boolean stop = false;
 
-    public void init() {
+    public static void main(String...args) {
         Scanner sc = new Scanner(System.in);
         /*
         System.out.print("Enter width ->");
@@ -50,14 +48,22 @@ public class KnightsTour extends JWindow {
         c = sc.nextInt();
         System.out.println();
 
-        setSize(totWidth, totHeight);
+        KnightsTour kt = new KnightsTour();
+    }
+
+    public KnightsTour() {
+        super("Knight's Tour");
+        int dim = Math.min(screen.width, screen.height);
+        setSize(dim, dim);
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         setVisible(true);
     }
 
     public void paint(Graphics g) {
         stop = false;
-        totWidth = getWidth();
-        totHeight = getHeight();
+        int totWidth = getWidth();
+        int totHeight = getHeight();
         if (Math.min(width, height) >= 5) {
             System.out.print("Knight's Tour is POSSIBLE");
             if ((width % 2 == 1 && height % 2 == 1)
@@ -130,7 +136,7 @@ public class KnightsTour extends JWindow {
             System.out.println("Generating Knight's Tour");
             int currentR = r;
             int currentC = c;
-            double initTime = System.currentTimeMillis();
+            double initTime = System.nanoTime();
             while (!stop) {
 
                 //Set current location to max: already visited
@@ -190,8 +196,8 @@ public class KnightsTour extends JWindow {
                     currentC = tempC;
                 }
             }
-            double stopTime = System.currentTimeMillis();
-            System.out.println("Time: " + (stopTime - initTime));
+            double stopTime = System.nanoTime();
+            System.out.println("Time: " + (stopTime - initTime)/(1.0E6) + " milliseconds");
 
 
         } else {

@@ -4,7 +4,7 @@ package labs.Lab30a;// Lab30ast.java
 
 
 
-import memes.perdono.Utilz;
+import memes.Utilz;
 
 import java.awt.*;
 import java.awt.event.*;

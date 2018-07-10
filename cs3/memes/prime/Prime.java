@@ -1,6 +1,6 @@
 package memes.prime;
 
-import memes.perdono.Utilz;
+import memes.Utilz;
 
 import javax.imageio.ImageIO;
 import java.applet.Applet;

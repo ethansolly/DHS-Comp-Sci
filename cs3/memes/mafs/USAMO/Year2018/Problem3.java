@@ -1,5 +1,8 @@
 package memes.mafs.USAMO.Year2018;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -7,44 +10,38 @@ public class Problem3 {
 
     public static void main(String...args) {
 
-        /*
+        /** Generate the numbers n such that:
+         *  Given a prime factor p of n, the prime factors of p-1 are also prime factors of n.
+         */
+
+
         try {
-            File f = new File("cs3/memes/USAMO/Year2018/sets");
-            FileWriter fw = new FileWriter(f);
-            for (int i = 1; i < 10000; i++) {
-                int m = totientFunct(i);
-                if (i % m == 0) {
-                    List list = getCoprimeList(i);
-                    fw.write(i + " : " + list.toString());
-                    fw.write("\n");
+            int n = 1;
+            int MAX = 10000;
+            FileWriter fw = new FileWriter(new File("cs3/memes/mafs/USAMO/Year2018/coolnumbers"));
+            while (n <= MAX) {
+                Set<Integer> factors = getPrimeFactors(n);
+                boolean isCoolNumber = true;
+                for (int f : factors) {
+                    //Get factors of f-1
+                    Set<Integer> subfactors = getPrimeFactors(f-1);
+
+                    //Check if n contains those factors
+                    if (!factors.containsAll(subfactors)) {
+                        isCoolNumber = false;
+                        break;
+                    }
+
                 }
+                if (isCoolNumber)
+                    fw.write(n + "\n");
+                n++;
             }
             fw.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-        */
 
-        //8192 is a valid n such that m divides n
-        int n = 256;
-        List<Integer> list = getCoprimeList(n);
-        int m = list.size();
-        System.out.println("m : " + m + "\nn : " + n);
-        for (int k = 0; k < 10; k++) {
-            BigInteger sum = BigInteger.ZERO;
-            for (int a : list) {
-                sum = sum.add(new BigInteger("" + a).pow(k));
-            }
-            BigInteger mod = sum.mod(new BigInteger("" + m));
-            if (mod.equals(BigInteger.ZERO))
-                System.out.println("k = " + k + " :: " + sum.toString() + " is divisible by " + m);
-            else {
-                System.out.println("k = " + k + " :: " + sum.toString() + " is NOT divisible by " + m + "...mod = " + mod.toString());
-            }
-
-
-        }
 
 
     }

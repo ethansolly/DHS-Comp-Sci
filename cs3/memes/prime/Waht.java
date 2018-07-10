@@ -1,7 +1,6 @@
 package memes.prime;
 
 import memes.mafs.Mafs;
-import memes.perdono.Utilz;
 
 import javax.swing.*;
 import java.applet.Applet;
@@ -25,13 +24,13 @@ public class Waht extends JFrame {
         addMouseListener(new WahtMouseListener());
 
         //VARIABLE INIT
-        x1 = new BigDecimal(-2.5);
+        x1 = new BigDecimal(-3.0);
         x2 = new BigDecimal( 1.0);
-        y1 = new BigDecimal(-1.0);
-        y2 = new BigDecimal( 1.0);
+        y1 = new BigDecimal(-2.0);
+        y2 = new BigDecimal( 2.0);
 
         //WINDOW INIT
-        setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setSize(300, 300);
         setVisible(true);
     }
 
@@ -39,23 +38,28 @@ public class Waht extends JFrame {
 
         Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
 
-        for (int i = 0; i < getWidth(); i++) {
-            for (int j = 0; j < getHeight(); j++) {
+        for (int i = 0; i <= getWidth(); i++) {
+            for (int j = 0; j <= getHeight(); j++) {
 
-                BigDecimal r0 = x2.subtract(x1).multiply(new BigDecimal(i/getWidth()));
-                BigDecimal i0 = y2.subtract(y1).multiply(new BigDecimal(j/getHeight()));
+                BigDecimal rt = new BigDecimal((double)i/getWidth());
+                BigDecimal it = new BigDecimal((double)j/getHeight());
+                BigDecimal r0 = BigDecimal.ONE.subtract(rt).multiply(x2).add(rt.multiply(x1));
+                BigDecimal i0 = BigDecimal.ONE.subtract(it).multiply(y2).add(it.multiply(y1));
+
+                //System.out.println(r0 + " + " + i0 + "i");
 
                 BigDecimal re = new BigDecimal(0);
                 BigDecimal im = new BigDecimal(0);
                 BigDecimal rSqr = re.multiply(re);
                 BigDecimal iSqr = im.multiply(im);
 
-                int iter = 0;
-                while (rSqr.add(iSqr).subtract(new BigDecimal(4)).signum() <= 0 && iter < 10) {
+                double iter = 0;
+                int maxIter = 10;
+                while ((rSqr.add(iSqr).doubleValue() < 2*2) && (iter < maxIter)) {
 
-                    im = re.add(im).pow(2).subtract(rSqr).subtract(iSqr);
-                    im = im.add(i0);
-                    re = rSqr.subtract(iSqr).add(r0);
+                    BigDecimal reTemp = rSqr.subtract(iSqr).add(r0);
+                    im = re.multiply(im).multiply(new BigDecimal(2)).add(i0);
+                    re = reTemp;
                     rSqr = re.multiply(re);
                     iSqr = im.multiply(im);
 
@@ -63,14 +67,23 @@ public class Waht extends JFrame {
 
                 }
 
+                if (iter < maxIter) {
+                    double log_zn = Math.log(rSqr.add(iSqr).doubleValue());
+                    double nu = Math.log(log_zn/Math.log(2))/Math.log(2);
+                    iter = iter + 1 - nu;
+                }
+
 
                 Color c1 = palette[(int) Math.floor(iter) % palette.length];
                 Color c2 = palette[((int) Math.floor(iter) + 1) % palette.length];
 
                 double frac = iter % 1;
+                //System.out.println(frac);
                 double R = lerp(c1.getRed(), c2.getRed(), frac);
                 double G = lerp(c1.getGreen(), c2.getGreen(), frac);
                 double B = lerp(c1.getBlue(), c2.getBlue(), frac);
+
+               // System.out.println(R + " " + G + " " + B);
 
                 g.setColor(new Color((int) R, (int) G, (int) B));
                 g.drawRect(i, j, 1, 1);
@@ -84,7 +97,7 @@ public class Waht extends JFrame {
      *  for t between 0 and 1.
      */
     public double lerp(double v0, double v1, double t) {
-        return (1-t)*v0 + t*v1;
+        return (1.0-t)*v0 + t*v1;
     }
 
 

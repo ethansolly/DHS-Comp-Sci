@@ -8,10 +8,10 @@ import java.util.function.Function;
 
 public class Recursion extends JFrame {
 
-    private double xLeft = -0.5;
-    private double xRight = 1.5;
-    private double yBottom = -1;
-    private double yTop = 1;
+    private double xLeft = -10;
+    private double xRight = 10;
+    private double yBottom = -10;
+    private double yTop = 10;
 
     private boolean havePoint = false;
 
@@ -27,12 +27,12 @@ public class Recursion extends JFrame {
     public void paint(Graphics g) {
 
         //Logistic map
-        for (double r = 2; r <= 4; r+=0.01) {
+        for (double r = 0; r <= 5; r+=0.01) {
         //for (double x0 = xLeft; x0 < xRight; x0+=0.01) {
 
             final double R = r;
 
-            Function<Double, Double> function = d -> R*d*(1-d);
+            Function<Double, Double> function = d -> R*Math.exp(d/Math.tan(d)-1);
 
             g.clearRect(0, 0, getWidth(), getHeight());
 
@@ -42,13 +42,13 @@ public class Recursion extends JFrame {
                 double x = (xRight-xLeft)*((double) i)/getWidth() + xLeft;
                 double y = function.apply(x);
                 int j = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
-                g.drawRect(i, j, 0, 0);
+                g.drawRect(i, j, 1, 1);
 
                 //Draw y = x
                 x = (xRight-xLeft)*((double) i)/getWidth() + xLeft;
                 y = x;
                 j = getHeight()-(int)(getHeight()*(y-yBottom)/(yTop-yBottom));
-                g.drawRect(i, j, 0, 0);
+                g.drawRect(i, j, 1, 1);
             }
 
             double x0 = 0.2;

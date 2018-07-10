@@ -1,40 +1,60 @@
+import memes.Utilz;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.function.Function;
 
 public class Main extends JFrame {
 
     boolean useT = false;
+    boolean makePic = false;
     double t;
 
-    private final ComplexFunction function = ComplexFunction.GAMMA;
-    private static final Color[] palette = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE};
+    private ComplexFunction function;
 
-    double x1 = -10;
-    double x2 = 10;
-    double y1 = -10;
-    double y2 = 10;
+    double x1 = -1;
+    double x2 =  2;
+    double y1 = -1.5;
+    double y2 =  1.5;
 
     double t1 = 0;
-    double t2 = 2*Math.PI;
+    double t2 = Math.PI;
     double tInc = 0.01;
 
     public static void main(String...args) {
-        Main main = new Main();
+        ComplexFunction cf = ComplexFunction.iter( (z, c) -> c.plus(z.times(z.neg().plus(c))), 1000, "Exponential Map");;
+        Main main = new Main(cf);
     }
 
-    public Main() {
-        super("Complex Function Grapher");
+    public Main(ComplexFunction cf) {
+        super();
+        function = cf;
+        setTitle("Complex Function Grapher : " + function.getName());
+        setSize(600, 600);
+        //setUndecorated(true);
+        //setAlwaysOnTop(true);
         setVisible(true);
+        if (makePic) {
+            BufferedImage bImg = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+            paintAll(bImg.getGraphics());
+            try {
+                ImageIO.write(bImg, "png", new File("C:\\Users\\ethansolly\\Documents\\GitHub\\DHS-Comp-Sci\\Complex\\" + function.getName() + ".png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    private Complex[][][] vals;
     public void paint(Graphics g) {
-        vals = new Complex[getWidth()][getHeight()][useT? (int)((t2-t1)/(tInc)): 1];
         if (useT) {
             for (t = t1; t <= t2; t += tInc) {
                 graph(g);
@@ -47,13 +67,11 @@ public class Main extends JFrame {
     }
 
     public void graph(Graphics g) {
-
         for (int i = 0; i < getWidth(); i += 1) {
             for (int j = 0; j < getHeight(); j += 1) {
                 double x = x2 * ((double) i / getWidth()) + x1 * (1.0 - (double) i / getWidth());
                 double y = y2 * ((double) j / getHeight()) + y1 * (1.0 - (double) j / getHeight());
                 Complex c = function.apply(new Complex(x, -y));
-                //System.out.println("( " + x + ", " + y + ") => " + "( " + c.a + ", " + c.b + ")");
                 g.setColor(c.getColor());
                 g.drawRect(i, j, 1, 1);
             }

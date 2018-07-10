@@ -1,7 +1,5 @@
 package memes;
 
-import memes.perdono.Utilz;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
